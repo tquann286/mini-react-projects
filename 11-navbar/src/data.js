@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaBehance, FaFacebook, FaLinkedin, FaTwitter } from 'react-icons/fa'
+import { FaInstagram, FaFacebook, FaLinkedin, FaGithub } from 'react-icons/fa'
 export const links = [
   {
     id: 1,
@@ -8,22 +8,22 @@ export const links = [
   },
   {
     id: 2,
-    url: '/about',
+    url: '/',
     text: 'about',
   },
   {
     id: 3,
-    url: '/projects',
+    url: '/',
     text: 'projects',
   },
   {
     id: 4,
-    url: '/contact',
+    url: '/',
     text: 'contact',
   },
   {
     id: 5,
-    url: '/profile',
+    url: '/',
     text: 'profile',
   },
 ]
@@ -31,22 +31,22 @@ export const links = [
 export const social = [
   {
     id: 1,
-    url: 'https://www.twitter.com',
+    url: 'https://www.facebook.com/trung.quann.2806',
     icon: <FaFacebook />,
   },
   {
     id: 2,
-    url: 'https://www.twitter.com',
-    icon: <FaTwitter />,
+    url: 'https://github.com/tquann286',
+    icon: <FaGithub />,
   },
   {
     id: 3,
-    url: 'https://www.twitter.com',
+    url: 'https://www.linkedin.com/in/quantrung286/',
     icon: <FaLinkedin />,
   },
   {
     id: 4,
-    url: 'https://www.twitter.com',
-    icon: <FaBehance />,
+    url: 'https://www.instagram.com/trungquan2806_/',
+    icon: <FaInstagram />,
   },
 ]
