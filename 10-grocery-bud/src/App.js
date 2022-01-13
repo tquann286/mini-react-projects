@@ -4,7 +4,14 @@ import Alert from './Alert'
 
 function App() {
   const [name, setName] = useState('')
-  const [list, setList] = useState([])
+  const [list, setList] = useState(() => {
+    let list = localStorage.getItem('list')
+    if (list) {
+      return JSON.parse(localStorage.getItem('list'))
+    } else {
+      return []
+    }
+  })
   const [isEditing, setIsEditing] = useState(false)
   const [editID, setEditID] = useState(null)
   const [alert, setAlert] = useState({ show: false, msg: '', type: '' })
@@ -34,6 +41,7 @@ function App() {
       setName('')
     }
   }
+  // console.log(list);
 
   const showAlert = ( show = false, msg = '', type = '' ) => {
     setAlert({show, msg, type})
@@ -55,6 +63,10 @@ function App() {
     setEditID(id)
     setName(specificItem.title)
   }
+
+  useEffect(() => {
+    localStorage.setItem('list',JSON.stringify(list))
+  }, [list])
 
 
   return (
