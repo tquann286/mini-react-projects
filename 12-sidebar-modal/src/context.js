@@ -36,8 +36,6 @@ const AppProvider = ({children}) => {
 }
 
 // custom hook: must begin with use...
-export const useGlobalContext = () => {
-    return useContext(AppContext)
-}
+export const useGlobalContext = () => useContext(AppContext)
 
 export { AppContext, AppProvider }
