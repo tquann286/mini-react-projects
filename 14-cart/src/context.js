@@ -14,20 +14,50 @@ const initialState = {
 const AppProvider = ({ children }) => {
 	const [state, dispatch] = useReducer(reducer, initialState)
 
+	const fetchData = async () => {
+		dispatch({ type: 'LOADING' })
+		const response = await fetch(url)
+		const cart = await response.json()
+		dispatch({ type: 'DISPLAY_ITEMS', payload: cart })
+	}
+
+	useEffect(() => {
+		fetchData()
+	}, [])
+
 	const clearCart = () => {
 		dispatch({ type: 'CLEAR_CART' })
 	}
 
 	const remove = (id) => {
-		dispatch({ type: 'REMOVE', payload:id })
+		dispatch({ type: 'REMOVE', payload: id })
 	}
+
+	const increase = (id) => {
+		dispatch({ type: 'INCREASE', payload: id })
+	}
+
+	const decrease = (id) => {
+		dispatch({ type: 'DECREASE', payload: id })
+	}
+
+	const toggleAmount = (id, type) => {
+		dispatch({ type: 'TOGGLE_AMOUNT', payload: { id, type } })
+	}
+
+	useEffect(() => {
+		dispatch({ type: 'GET_TOTALS' })
+	}, [state.cart])
 
 	return (
 		<AppContext.Provider
 			value={{
 				...state,
 				clearCart,
-        remove,
+				remove,
+				increase,
+				decrease,
+				toggleAmount,
 			}}
 		>
 			{children}
