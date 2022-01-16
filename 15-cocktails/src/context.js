@@ -38,11 +38,11 @@ const AppProvider = ({ children }) => {
 			console.log(error)
 			setLoading(false)
 		}
-	}, [searchTerm, fetchDrinks])
+	}, [searchTerm])
 
 	useEffect(() => {
 		fetchDrinks()
-	}, [searchTerm])
+	}, [searchTerm, fetchDrinks])
 
 	const value = {
 		loading,
