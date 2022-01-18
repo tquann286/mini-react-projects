@@ -58,8 +58,7 @@ const AppProvider = ({ children }) => {
 				increase,
 				decrease,
 				toggleAmount,
-			}}
-		>
+			}}>
 			{children}
 		</AppContext.Provider>
 	)
